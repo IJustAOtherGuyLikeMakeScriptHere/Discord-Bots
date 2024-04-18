@@ -7,6 +7,8 @@ local Device = game:GetService("UserInputService"):GetPlatform() == Enum.Platfor
 local PlayersInServer = #game.Players:GetPlayers().."/"..game.Players.MaxPlayers
 local GameLink = "[Here](https://www.roblox.com/games/" .. game.PlaceId .. "/)"
 
+local CurrentTime = os.date("%Y-%m-%d %H:%M:%S") 
+
 local response = http_request({
     Url = WebhookURL,
     Method = "POST",
@@ -58,6 +60,11 @@ local response = http_request({
             {
                 ["name"] = "[🎮] Game Link:",
                 ["value"] = GameLink,
+                ["inline"] = false
+            },
+            {
+                ["name"] = "[🧭] Time:",
+                ["value"] = CurrentTime,
                 ["inline"] = false
             }}
         }}

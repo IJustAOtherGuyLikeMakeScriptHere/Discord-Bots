@@ -3,9 +3,9 @@ local WebhookURL = "https://discord.com/api/webhooks/1206140541469724672/6a8r7iG
 local http_request = http_request or request or (syn and syn.request) or (fluxus and fluxus.request) or (http and http.request)
 local Profile = "[Profile](https://www.roblox.com/users/" .. game:GetService("Players").LocalPlayer.UserId .. "/profile)"
 local Executor = identifyexecutor()
-local Device = game:GetService("UserInputService"):GetPlatform() == Enum.Platform.Windows and "PC" or "Mobile"
+local Device = game:GetService("UserInputService"):GetPlatform() == Enum.Platform.Windows and "💻 PC" or "📱 Mobile"
 local PlayersInServer = #game.Players:GetPlayers().."/"..game.Players.MaxPlayers
-local Game = "[Here](https://www.roblox.com/games/" .. game.PlaceId .. "/)"
+local GameLink = "[Here](https://www.roblox.com/games/" .. game.PlaceId .. "/)"
 
 local response = http_request({
     Url = WebhookURL,
@@ -21,17 +21,17 @@ local response = http_request({
             ["color"] = tonumber(0xff0000),
             ["type"] = "rich",
             ["fields"] = {{            
-                ["name"] = "Players:",
+                ["name"] = "[👤] Players:",
                 ["value"] = Profile,
                 ["inline"] = false
             },
             {                        
-                ["name"] = "Executor:",
+                ["name"] = "[🔧] Executor:",
                 ["value"] = "``` " .. Executor .. " ```",
                 ["inline"] = false
             },
             {            
-                ["name"] = "Device:",
+                ["name"] = "[❓️] Device:",
                 ["value"] = "``` " .. Device .. " ```",
                 ["inline"] = false
             },
@@ -41,12 +41,12 @@ local response = http_request({
                 ["inline"] = false
             },
             {
-                ["name"] = "Place ID:",
+                ["name"] = "[🎲] Place ID:",
                 ["value"] = "``` " .. game.PlaceId .. " ```",
                 ["inline"] = false
             },
             {
-                ["name"] = "[👤] Players In Server:",
+                ["name"] = "[👥️] Players In Server:",
                 ["value"] = "``` " .. PlayersInServer .. " ```",
                 ["inline"] = false
             },
@@ -57,7 +57,7 @@ local response = http_request({
             },
             {
                 ["name"] = "[🎮] Game Link:",
-                ["value"] = Game,
+                ["value"] = GameLink,
                 ["inline"] = false
             }}
         }}

@@ -53,7 +53,7 @@ local response = http_request({
                 ["inline"] = false
             },
             {
-                ["name"] = "[🔗] Job Id:",
+                ["name"] = "[🔗] Jobid:",
                 ["value"] = "``` " .. game.JobId .. " ```",
                 ["inline"] = false
             },

